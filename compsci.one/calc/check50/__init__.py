@@ -56,3 +56,13 @@ class Credit(Checks):
         self.spawn("python calc.py").stdin("3")\
 		.stdin("&")\
 		.stdin("2").stdout("invalid opperation\n", "invalid opperation\n").exit(0)
+
+    @check("exists")
+    def test_reject_foo(self):
+        """rejects a non-numeric input of "foo" """
+        self.spawn("python credit.py").stdin("foo").reject()
+
+    @check("exists")
+    def test_reject_empty(self):
+        """rejects a non-numeric input of "" """
+        self.spawn("python credit.py").stdin("").reject()
