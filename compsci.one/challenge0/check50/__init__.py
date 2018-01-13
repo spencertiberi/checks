@@ -2,11 +2,11 @@ from check50 import *
 
 class Challenge(Checks):
 
-	def exists(self):
+	def exists1(self):
 		"""calculator.py exists"""
 		self.require("calculator.py")
 
-	def exists(self):
+	def exists2(self):
     	"""schedule.py exists"""
     	self.require("schedule.py")
 
