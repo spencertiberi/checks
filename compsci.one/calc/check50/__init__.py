@@ -42,10 +42,3 @@ class Credit(Checks):
         self.spawn("python calc.py").stdin("2")\
 		.stdin("^")\
 		.stdin("4").stdout("16.0\n", "16.0\n").exit(0)
-
-    @check("exists")
-    def test6(self):
-        """identifies 1234567890 as INVALID"""
-        self.spawn("python calc.py").stdin("4")\
-		.stdin("$")\
-		stdin("4").stdout("^INVALID\n", "INVALID\n").exit(0)
