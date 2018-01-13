@@ -48,4 +48,4 @@ class Credit(Checks):
         """informs user of "invalid opperation""""
         self.spawn("python calc.py").stdin("2")\
 		.stdin("&")\
-		.stdin("4").stdout("invalid\sopperation\n", "invalid\sopperation\n").exit(0)
+		.stdin("4").stdout("invalid\n", "invalid\n").exit(0)
