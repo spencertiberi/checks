@@ -5,18 +5,18 @@ class Credit(Checks):
 
     @check()
     def exists(self):
-        """credit.py exists."""
-        self.require("credit.py")
+        """calc.py exists."""
+        self.require("calc.py")
 
     @check("exists")
     def test1(self):
-        """input of 2 yields 2"""
-        self.spawn("python credit.py").stdin("2").stdout("2\n", "2\n").exit(0)
+        """input of 2, +, and 2 yields 4"""
+        self.spawn("python calc.py").stdin("2").stdin("+").stdin("2").stdout("4\n", "4\n").exit(0)
 
     @check("exists")
     def test2(self):
         """identifies 371449635398431 as AMEX"""
-        self.spawn("python credit.py").stdin("371449635398431").stdout("^AMEX\n", "AMEX\n").exit(0)
+        self.spawn("python calc.py").stdin("371449635398431").stdout("^AMEX\n", "AMEX\n").exit(0)
 
     @check("exists")
     def test3(self):
