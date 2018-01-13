@@ -3,9 +3,13 @@ from check50 import *
 class Challenge(Checks):
 
 	@check()
-	def exists(self):
+	def exists0(self):
 		"""calculator.py exists"""
 		self.require("calculator.py")
+    @check(exists0)
+    def exists1(self):
+    	"""schedule.py exists"""
+    	self.require("schedule.py")
 
 #	@check("exists0")
 #	def test_add(self):
