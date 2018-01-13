@@ -8,6 +8,6 @@ class Challenge(Checks):
 		self.require("calculator.py")
 
     @check("exists")
-    def test_add(self):
+    def test(self):
         """input of 2 yeilds 2"""
         self.spawn("python calculator.py").stdin("2").stdout("2\n", "2\n").exit(0)
