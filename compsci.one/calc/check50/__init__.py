@@ -42,27 +42,3 @@ class Credit(Checks):
         self.spawn("python calc.py").stdin("3")\
 		.stdin("^")\
 		.stdin("2").stdout("9.0\n", "9.0\n").exit(0)
-
-    @check("exists")
-    def test6(self):
-        """input of 3, /, and 2 yields 1.5"""
-        self.spawn("python calc.py").stdin("3")\
-		.stdin("/")\
-		.stdin("2").stdout("1.5\n", "1.5\n").exit(0)
-
-    @check("exists")
-    def test7(self):
-        """informs user of invalid operation"""
-        self.spawn("python calc.py").stdin("3")\
-		.stdin("&")\
-		.stdin("2").stdout("invalid opperation\n", "invalid opperation\n").exit(0)
-
-    @check("exists")
-    def test_reject_foo(self):
-        """rejects a non-numeric input of "foo" """
-        self.spawn("python credit.py").stdin("foo").reject()
-
-    @check("exists")
-    def test_reject_empty(self):
-        """rejects a non-numeric input of "" """
-        self.spawn("python credit.py").stdin("").reject()
