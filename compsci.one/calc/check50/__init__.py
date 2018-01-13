@@ -13,7 +13,7 @@ class Credit(Checks):
         """input of 2, +, and 2 yields 4"""
         self.spawn("python calc.py").stdin("2")\
 		.stdin("+")\
-		.stdin("2").stdout("4\n", "4\n").exit(0)
+		.stdin("2").stdout("4.0\n", "4.0\n").exit(0)
 
     @check("exists")
     def test2(self):
