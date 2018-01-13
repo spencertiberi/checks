@@ -35,3 +35,10 @@ class Credit(Checks):
         self.spawn("python calc.py").stdin("2")\
 		.stdin("/")\
 		.stdin("4").stdout("0.5\n", "0.5\n").exit(0)
+
+    @check("exists")
+    def test5(self):
+        """input of 2, ^, and 4 yields 16.0"""
+        self.spawn("python calc.py").stdin("2")\
+		.stdin("^")\
+		.stdin("4").stdout("16.0\n", "16.0\n").exit(0)
