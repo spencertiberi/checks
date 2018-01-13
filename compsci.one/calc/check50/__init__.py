@@ -42,10 +42,3 @@ class Credit(Checks):
         self.spawn("python calc.py").stdin("2")\
 		.stdin("^")\
 		.stdin("4").stdout("16.0\n", "16.0\n").exit(0)
-
-    @check("exists")
-    def test6(self):
-        """informs user of "invalid opperation""""
-        self.spawn("python calc.py").stdin("2")\
-		.stdin("&")\
-		.stdin("4").stdout("invalid\n", "invalid\n").exit(0)
