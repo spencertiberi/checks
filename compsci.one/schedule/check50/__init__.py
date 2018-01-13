@@ -10,7 +10,7 @@ class Schedule(Checks):
 
     @check("exists")
     def test1(self):
-        """input of 2, +, and 4 yields 6.0"""
+        """time of 10:30 yields yes"""
         self.spawn("python schedule.py").stdin("Friday")\
 		.stdin("10")\
 		.stdin("30").stdout("yes\n", "yes\n").exit(0)
