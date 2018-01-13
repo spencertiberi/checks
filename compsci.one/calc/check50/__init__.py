@@ -10,21 +10,28 @@ class Credit(Checks):
 
     @check("exists")
     def test1(self):
-        """input of 2, +, and 2 yields 4.0"""
+        """input of 2, +, and 4 yields 6.0"""
         self.spawn("python calc.py").stdin("2")\
 		.stdin("+")\
-		.stdin("2").stdout("4.0\n", "4.0\n").exit(0)
+		.stdin("4").stdout("6.0\n", "6.0\n").exit(0)
 
     @check("exists")
     def test2(self):
-        """input of 2, -, and 2 yields 0.0"""
+        """input of 2, -, and 4 yields -2.0"""
         self.spawn("python calc.py").stdin("2")\
 		.stdin("-")\
-		.stdin("2").stdout("0.0\n", "0.0\n").exit(0)
+		.stdin("4").stdout("-2.0\n", "-2.0\n").exit(0)
 
     @check("exists")
     def test3(self):
-        """input of 2, x, and 2 yields 4.0"""
+        """input of 2, x, and 4 yields 8.0"""
         self.spawn("python calc.py").stdin("2")\
 		.stdin("x")\
-		.stdin("2").stdout("4.0\n", "4.0\n").exit(0)
+		.stdin("4").stdout("8.0\n", "8.0\n").exit(0)
+
+    @check("exists")
+    def test4(self):
+        """input of 2, /, and 4 yields 0.5"""
+        self.spawn("python calc.py").stdin("2")\
+		.stdin("/")\
+		.stdin("4").stdout("0.5\n", "0.5\n").exit(0)
