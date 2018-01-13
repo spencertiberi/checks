@@ -1,19 +1,19 @@
 from check50 import *
 
 
-class Calc(Checks):
+class Schedule(Checks):
 
     @check()
     def exists(self):
-        """calc.py exists."""
-        self.require("calc.py")
+        """schedule.py exists."""
+        self.require("schedule.py")
 
     @check("exists")
     def test1(self):
         """input of 2, +, and 4 yields 6.0"""
-        self.spawn("python calc.py").stdin("2")\
-		.stdin("+")\
-		.stdin("4").stdout("6.0\n", "6.0\n").exit(0)
+        self.spawn("python schedule.py").stdin("Friday")\
+		.stdin("10")\
+		.stdin("30").stdout("yes\n", "yes\n").exit(0)
 
     @check("exists")
     def test2(self):
