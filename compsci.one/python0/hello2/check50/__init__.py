@@ -1,48 +1,21 @@
-import json
-import os
-import shlex
+import re
 
 from check50 import *
 
-
-class Pyhton0(Checks):
+class Hello(Checks):
 
     @check()
     def exists(self):
-        """hello.py exists."""
+        """hello2.py exists."""
         self.require("hello.py")
 
     @check("exists")
-    def test1(self):
-        """input of 2, +, and 4 yields 6.0"""
-        self.spawn("python calc.py").stdin("2")\
-		.stdin("+")\
-		.stdin("4").stdout("6.0\n", "6.0\n").exit(0)
-
-    @check("exists")
-    def test2(self):
-        """input of 2, -, and 4 yields -2.0"""
-        self.spawn("python calc.py").stdin("2")\
-		.stdin("-")\
-		.stdin("4").stdout("-2.0\n", "-2.0\n").exit(0)
-
-    @check("exists")
-    def test3(self):
-        """input of 2, x, and 4 yields 8.0"""
-        self.spawn("python calc.py").stdin("2")\
-		.stdin("x")\
-		.stdin("4").stdout("8.0\n", "8.0\n").exit(0)
-
-    @check("exists")
-    def test4(self):
-        """input of 2, /, and 4 yields 0.5"""
-        self.spawn("python calc.py").stdin("2")\
-		.stdin("/")\
-		.stdin("4").stdout("0.5\n", "0.5\n").exit(0)
-
-    @check("exists")
-    def test5(self):
-        """input of 2, ^, and 4 yields 16.0"""
-        self.spawn("python calc.py").stdin("2")\
-		.stdin("^")\
-		.stdin("4").stdout("16.0\n", "16.0\n").exit(0)
+    def prints_hello(self):
+        """prints "Hello, {name}!\\n" """
+        expected = "[Hh]ello, world!\n"
+        actual = self.spawn("python hello.py").stdout()
+        if not re.match(expected, actual):
+            err = Error(Mismatch("Hello, world!\n", actual))
+            if re.match(expected[:-1], actual):
+                err.helpers = "Did you forget a newline (\"\\n\") at the end of your string?"
+            raise err
