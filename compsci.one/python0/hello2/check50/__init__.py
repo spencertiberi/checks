@@ -1,6 +1,6 @@
 from check50 import *
 
-class Calc(Checks):
+class Hello0(Checks):
 
     @check()
     def exists(self):
