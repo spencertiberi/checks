@@ -15,4 +15,4 @@ class Spaghetti(Checks):
     @check("exists")
     def test1(self):
         """There's vomit on his sweater already!"""
-        self.spawn("python spaghetti.py").stdout("There's vomit on his sweater already\nMom's spaghetti")
+        self.spawn("python spaghetti.py").stdout("There's vomit on his sweater already\nMom's spaghetti").exit(0)
