@@ -1,21 +1,13 @@
-import re
-
 from check50 import *
 
-class Hello(Checks):
+class Calc(Checks):
 
     @check()
     def exists(self):
         """hello2.py exists."""
-        self.require("hello.py")
+        self.require("hello2.py")
 
     @check("exists")
-    def prints_hello(self):
-        """prints "Hello, {name}!\\n" """
-        expected = "[Hh]ello, world!\n"
-        actual = self.spawn("python hello.py").stdout()
-        if not re.match(expected, actual):
-            err = Error(Mismatch("Hello, world!\n", actual))
-            if re.match(expected[:-1], actual):
-                err.helpers = "Did you forget a newline (\"\\n\") at the end of your string?"
-            raise err
+    def test1(self):
+        """input of Billy yields \"Hello, Billy!\""""
+        self.spawn("python hello2.py").stdin("Billy").stdout("Hello, Billy!\n", "Hello, Billy!\n").exit(0)
