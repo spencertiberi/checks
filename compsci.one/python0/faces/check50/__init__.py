@@ -12,4 +12,4 @@ class Faces(Checks):
     @check("exists")
     def test1(self):
         """prints faces correctly."""
-        self.spawn("python faces.py").stdout("^ ^\n -\n\nQ(\'.\'Q)\n\n? ?\n >\n~~~\n", "^ ^\n -\n\nQ('.'Q)\n\n? ?\n >\n~~~\n").exit(0)
+        self.spawn("python faces.py").stdout("^ ^\n -\n\nQ('.'Q)\n\n? ?\n >\n~~~\n", "^ ^\n -\n\nQ('.'Q)\n\n? ?\n >\n~~~\n").exit(0)
