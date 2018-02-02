@@ -18,4 +18,4 @@ class Adlib(Checks):
         .stdin("bananas")\
         .stdin("button")\
         .stdin("Belmont")\
-        .stdin("jump").stdout("Tom Brady was planning a dream vacation to Belmont.\nTom Brady was especially looking forward to trying the local\ncuisine, including stinky soup and bananas.\n\nTom Brady will have to practice the language quietly to\nmake it easier to jump with people.\n\nTom Brady has a long list of sights to see, including the\nbutton museum and the blue park.").exit(0)
+        .stdin("jump").stdout("Tom Brady was planning a dream vacation to Belmont.\nTom Brady was especially looking forward to trying the local\ncuisine, including stinky soup and bananas.\n\nTom Brady will have to practice the language quietly to\nmake it easier to jump with people.\n\nTom Brady has a long list of sights to see, including the\nbutton museum and the blue park.\n").exit(0)
