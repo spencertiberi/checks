@@ -1,10 +1,10 @@
 from check50 import *
 
-class Faces(Checks):
+class Adlib(Checks):
 
     @check()
     def exists(self):
-        """faces.py exists."""
+        """adlib.py exists."""
         self.require("faces.py")
 
     @check("exists")
