@@ -10,7 +10,7 @@ class Adlib(Checks):
     @check("exists")
     def test1(self):
         """Example Run works."""
-        self.spawn("python adlib.py").stdin("Tom Brady")\
+        self.spawn("python adlibs.py").stdin("Tom Brady")\
 		.stdin("stinky")\
 		.stdin("blue")\
         .stdin("quietly")\
