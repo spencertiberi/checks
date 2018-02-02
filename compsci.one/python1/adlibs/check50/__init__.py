@@ -1,4 +1,4 @@
-yellowfrom check50 import *
+from check50 import *
 
 class Adlib(Checks):
 
