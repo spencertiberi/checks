@@ -2,20 +2,17 @@ import re
 
 from check50 import *
 
-class Hello(Checks):
+class Eff(Checks):
 
     @check()
     def exists(self):
-        """hello.py exists."""
-        self.require("hello.py")
+        """eff.py exists."""
+        self.require("eff.py")
 
     @check("exists")
-    def prints_hello(self):
-        """prints "Hello, world!\\n" """
-        expected = "[Hh]ello, world!\n"
-        actual = self.spawn("python hello.py").stdout()
-        if not re.match(expected, actual):
-            err = Error(Mismatch("Hello, world!\n", actual))
-            if re.match(expected[:-1], actual):
-                err.helpers = "Did you forget a newline (\"\\n\") at the end of your string?"
-            raise err
+    def test1(self):
+        """Result of 32.895 with input of .45, 21.1, 5.3, 7.1"""
+        self.spawn("python eff.py").stdin(".45")\
+        .stdin("21.1")\
+        .stdin("5.3")\
+        .stdin("7.1").stdout("This player's efficiency rating is 32.895!\n").exit(0)
