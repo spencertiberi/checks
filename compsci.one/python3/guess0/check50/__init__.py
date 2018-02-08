@@ -7,7 +7,7 @@ class Guess0(Checks):
     @check()
     def exists(self):
         """guess0.py exists."""
-        self.require("eff.py")
+        self.require("guess0.py")
 
     @check("exists")
     def test1(self):
