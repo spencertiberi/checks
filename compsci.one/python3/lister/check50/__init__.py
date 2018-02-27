@@ -1,29 +1,25 @@
 from check50 import *
 
-class Schedule(Checks):
+class Lister(Checks):
 
     @check()
     def exists(self):
-        """schedule.py exists."""
-        self.require("schedule.py")
+        """lister.py exists."""
+        self.require("lister.py")
 
     @check("exists")
     def test1(self):
-        """Input of Friday, 10, and 30 yields yes"""
-        self.spawn("python schedule.py").stdin("Friday")\
-		.stdin("10")\
-        .stdin("30").stdout("yes\n").exit(0)
+        """Input of 3, "pizza", "cheese", "pineapple" works"""
+        self.spawn("python lister.py").stdin("3")\
+		.stdin("pizza")\
+        .stdin("cheese")\
+        .stdin("pineapple").stdout("['pizza', 'cheese', 'pineapple']\n").exit(0)
 
     @check("exists")
     def test2(self):
-        """Input of Sunday, 12, and 30 yields no"""
-        self.spawn("python schedule.py").stdin("Sunday")\
-		.stdin("12")\
-        .stdin("30").stdout("no\n").exit(0)
-
-    @check("exists")
-    def test3(self):
-        """Input of Monday, 20, and 45 yields no"""
-        self.spawn("python schedule.py").stdin("Monday")\
-		.stdin("20")\
-        .stdin("45").stdout("no\n").exit(0)
+        """Input of 4, "pizza", "cheese", "pineapple", "anchovies" works"""
+        self.spawn("python lister.py").stdin("3")\
+		.stdin("pizza")\
+        .stdin("cheese")\
+        .stdin("pineapple")
+        .stdin("anchovies").stdout("['pizza', 'cheese', 'pineapple', 'anchovies']\n").exit(0)

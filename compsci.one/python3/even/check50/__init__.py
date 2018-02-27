@@ -1,26 +1,13 @@
 from check50 import *
 
-class Truth(Checks):
+class Even(Checks):
 
     @check()
     def exists(self):
-        """truth.py exists."""
-        self.require("truth.py")
+        """even.py exists."""
+        self.require("even.py")
 
     @check("exists")
     def test1(self):
-        """Input of true and false"""
-        self.spawn("python truth.py").stdin("true")\
-		.stdin("false").stdout("A and B: false\nA or B: true\nNot A: false\nNot B: true\n").exit(0)
-
-    @check("exists")
-    def test2(self):
-        """Input of true and true"""
-        self.spawn("python truth.py").stdin("true")\
-		.stdin("true").stdout("A and B: true\nA or B: true\nNot A: false\nNot B: false\n").exit(0)
-
-    @check("exists")
-    def test3(self):
-        """Input of false and false"""
-        self.spawn("python truth.py").stdin("false")\
-		.stdin("false").stdout("A and B: false\nA or B: false\nNot A: true\nNot B: true\n").exit(0)
+        """Prints 1 odd, 2 even, ..."""
+        self.spawn("python even.py").stdout("1 odd\n2 even\n3 odd\n4 even\n5 odd\n6 even\n7 odd\n8 even\n9 odd\n10 even\n11 odd\n12 even\n13 odd\n14 even\n15 odd\n").exit(0)
