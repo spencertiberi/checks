@@ -10,7 +10,7 @@ class Lister(Checks):
     @check("exists")
     def test1(self):
         """Input of 3, "pizza", "cheese", "pineapple" works"""
-        self.spawn("python lister.py").stdin(3).stdin('pizza').stdin('cheese').stdin('pineapple').stdout("['pizza', 'cheese', 'pineapple']\n").exit(0)
+        self.spawn("python lister.py").stdin('3').stdin('pizza').stdin('cheese').stdin('pineapple').stdout("['pizza', 'cheese', 'pineapple']\n").exit(0)
 
     @check("exists")
     def test2(self):
