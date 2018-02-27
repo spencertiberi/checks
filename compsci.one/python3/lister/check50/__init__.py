@@ -21,5 +21,5 @@ class Lister(Checks):
         self.spawn("python lister.py").stdin("3")\
 		.stdin("pizza")\
         .stdin("cheese")\
-        .stdin("pineapple")
+        .stdin("pineapple")\
         .stdin("anchovies").stdout("['pizza', 'cheese', 'pineapple', 'anchovies']\n").exit(0)
