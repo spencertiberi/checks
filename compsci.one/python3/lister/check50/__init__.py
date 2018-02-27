@@ -15,8 +15,8 @@ class Lister(Checks):
     @check("exists")
     def test2(self):
         """Input of 4, "pizza", "cheese", "pineapple", "anchovies" works"""
-        self.spawn("python lister.py").stdin("4")\
+        self.spawn("python lister.py").stdin('4')\
 		.stdin('pizza')\
         .stdin('cheese')\
         .stdin('pineapple')\
-        .stdin('anchovies').stdout("['pizza', 'cheese', 'pineapple', 'anchovies']\n").exit(0)
+        .stdin('anchovies').stdout("[\'pizza\', \'cheese\', \'pineapple\', \'anchovies\']\n").exit(0)
